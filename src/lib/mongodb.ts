@@ -24,3 +24,12 @@ export const mongoClient =
 globalMongo.mongoClient = mongoClient;
 
 export const db = mongoClient.db();
+
+/**
+ * Ensure a warm serverless instance never reuses a closed MongoDB topology.
+ * MongoClient.connect() is idempotent while connected and recreates the
+ * topology after a close; the driver also serializes concurrent connects.
+ */
+export async function ensureMongoConnection() {
+  await mongoClient.connect();
+}

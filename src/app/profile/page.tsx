@@ -4,7 +4,9 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Mail, UserRound } from "lucide-react";
 import { auth } from "@/lib/auth";
+import { ensureMongoConnection } from "@/lib/mongodb";
 export default async function Profile() {
+  await ensureMongoConnection();
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session) redirect("/signin?reason=protected");
   const u = session.user;

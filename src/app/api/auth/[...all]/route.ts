@@ -1,3 +1,15 @@
 import { auth } from "@/lib/auth";
+import { ensureMongoConnection } from "@/lib/mongodb";
 import { toNextJsHandler } from "better-auth/next-js";
-export const { GET, POST } = toNextJsHandler(auth);
+
+const handlers = toNextJsHandler(auth);
+
+export async function GET(request: Request) {
+  await ensureMongoConnection();
+  return handlers.GET(request);
+}
+
+export async function POST(request: Request) {
+  await ensureMongoConnection();
+  return handlers.POST(request);
+}
