@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
@@ -22,7 +23,9 @@ export default function RootLayout({
     <html lang="bn">
       <body className={hind.variable}>
         <Providers>
-          <Header />
+          <Suspense fallback={null}>
+            <Header />
+          </Suspense>
           <main>{children}</main>
           <Footer />
         </Providers>

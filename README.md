@@ -42,3 +42,8 @@ Set the same environment variables in the deployment dashboard. Do not commit re
 
 - Vercel: import the repository, add environment variables, and deploy with the default Next.js settings.
 - Cloudflare: this full-stack app uses route handlers and MongoDB authentication, so deploy the same repository with Cloudflare's full-stack Next.js runtime (Workers/OpenNext) rather than a static export.
+
+## Links
+
+- Live site: https://bazardors.vercel.app
+- GitHub repository: https://github.com/kamrullab/Assignment-7

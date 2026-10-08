@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState, useSyncExternalStore } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 const subscribe = () => () => {};
@@ -29,6 +29,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const date = useSyncExternalStore(subscribe, getDate, () => "আজকের বাজার");
   const router = useRouter();
+  const pathname = usePathname();
   const { data: session, isPending } = authClient.useSession();
   async function logout() {
     await authClient.signOut();
@@ -46,9 +47,15 @@ export function Header() {
           </span>
         </Link>
         <nav className="desktop-nav">
-          <Link href="/">হোম</Link>
+          <Link className={pathname === "/" ? "active" : undefined} href="/">
+            হোম
+          </Link>
           {categories.map(([s, n]) => (
-            <Link key={s} href={`/category/${s}`}>
+            <Link
+              className={pathname === `/category/${s}` ? "active" : undefined}
+              key={s}
+              href={`/category/${s}`}
+            >
               {n}
             </Link>
           ))}

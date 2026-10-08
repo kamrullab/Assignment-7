@@ -28,7 +28,7 @@ export default async function Home() {
               চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম —
               সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
             </p>
-            <Link className="btn primary hero-btn" href="#সব-পণ্য">
+            <Link className="btn primary hero-btn" href="#all-products">
               সব পণ্য দেখুন <ArrowDown size={18} />
             </Link>
             <div className="hero-stats">
@@ -77,7 +77,7 @@ export default async function Home() {
           <ProductGrid products={fallers} />
         </div>
       </section>
-      <section id="সব-পণ্য" className="container section">
+      <section id="all-products" className="container section">
         <div className="section-heading">
           <div>
             <span className="kicker">পণ্যের তালিকা</span>
