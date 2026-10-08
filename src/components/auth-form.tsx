@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import {
   LoaderCircle,
   LockKeyhole,
@@ -16,7 +15,6 @@ import { authClient } from "@/lib/auth-client";
 
 export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
   const signup = mode === "signup";
-  const router = useRouter();
   const [loading, setLoading] = useState<"email" | "google" | "github" | null>(
     null,
   );
@@ -24,9 +22,9 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const email = String(fd.get("email"));
+    const email = String(fd.get("email")).trim().toLowerCase();
     const password = String(fd.get("password"));
-    const name = String(fd.get("name") ?? "");
+    const name = String(fd.get("name") ?? "").trim();
 
     if (password.length < 8) {
       toast.error("পাসওয়ার্ড কমপক্ষে ৮ অক্ষরের হতে হবে");
@@ -34,25 +32,31 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
     }
 
     setLoading("email");
-    const result = signup
-      ? await authClient.signUp.email({ name, email, password })
-      : await authClient.signIn.email({ email, password });
-    setLoading(null);
+    try {
+      const result = signup
+        ? await authClient.signUp.email({ name, email, password })
+        : await authClient.signIn.email({ email, password });
 
-    if (result.error) {
-      toast.error(result.error.message || "আবার চেষ্টা করুন");
-      return;
+      if (result.error) {
+        toast.error(result.error.message || "ইমেইল বা পাসওয়ার্ড সঠিক নয়");
+        return;
+      }
+
+      toast.success(
+        signup
+          ? "অ্যাকাউন্ট তৈরি হয়েছে—এখন সাইন ইন করুন"
+          : "সফলভাবে সাইন ইন হয়েছে",
+      );
+
+      // A full navigation makes the new session cookie immediately available
+      // to protected server routes and the header session state.
+      window.location.assign(signup ? "/signin" : "/");
+    } catch {
+      toast.error("সাইন ইন করা যায়নি। আবার চেষ্টা করুন");
+    } finally {
+      setLoading(null);
     }
-
-    toast.success(
-      signup
-        ? "অ্যাকাউন্ট তৈরি হয়েছে—এখন সাইন ইন করুন"
-        : "সফলভাবে সাইন ইন হয়েছে",
-    );
-    router.push(signup ? "/signin" : "/");
-    router.refresh();
   }
-
   async function social(provider: "google" | "github") {
     setLoading(provider);
     try {
