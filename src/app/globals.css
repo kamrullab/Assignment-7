@@ -1681,3 +1681,90 @@ body:has(.auth-page) .topbar {
   margin-top: 9px !important;
   font-size: 12px;
 }
+
+/* Center compact account pages and remove unnecessary page scrolling */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+body:has(.auth-page),
+body:has(.profile-page) {
+  height: 100vh;
+  overflow: hidden;
+}
+body:has(.auth-page) footer,
+body:has(.profile-page) footer,
+body:has(.profile-page) .ticker {
+  display: none;
+}
+body:has(.profile-page) .topbar {
+  height: 58px;
+}
+main:has(.auth-page),
+main:has(.profile-page) {
+  min-height: calc(100vh - 58px);
+  height: calc(100vh - 58px);
+}
+.auth-page,
+.profile-page {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  place-items: center;
+  padding: 10px 14px;
+  overflow: hidden;
+}
+.profile-page.container {
+  max-width: none;
+}
+.profile-card {
+  width: min(470px, 100%);
+  padding: 24px 28px;
+  border-radius: 16px;
+}
+.avatar {
+  width: 66px;
+  height: 66px;
+  margin-bottom: 9px;
+}
+.avatar svg {
+  width: 30px;
+  height: 30px;
+}
+.profile-card h1 {
+  margin: 3px;
+  font-size: 28px;
+}
+.profile-card > p {
+  margin-block: 8px;
+  font-size: 14px;
+}
+.profile-info {
+  gap: 14px;
+  margin: 16px 0;
+  padding: 14px;
+}
+.profile-info span + span {
+  padding-left: 14px;
+}
+.profile-info b {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.profile-card > .btn {
+  min-height: 40px;
+  padding: 8px 16px;
+}
+@media (max-width: 520px) {
+  .profile-card {
+    padding: 20px 18px;
+  }
+  .profile-info {
+    gap: 9px;
+  }
+  .profile-info span + span {
+    padding-top: 9px;
+  }
+}
