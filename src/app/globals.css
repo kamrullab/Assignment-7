@@ -2087,10 +2087,9 @@ textarea {
 }
 .market-head,
 .market-row {
-  grid-template-columns: minmax(220px, 2fr) minmax(110px, 1fr) minmax(
-      110px,
-      1fr
-    ) minmax(110px, 1fr);
+  grid-template-columns:
+    minmax(220px, 2fr) minmax(110px, 1fr) minmax(110px, 1fr)
+    minmax(110px, 1fr);
 }
 .market-head {
   padding: 17px 24px;
@@ -2185,4 +2184,31 @@ textarea {
     gap: 11px 12px;
     padding: 13px;
   }
+}
+
+/* Navigable product breadcrumbs */
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+.breadcrumbs a {
+  color: var(--muted);
+  text-decoration: none;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease;
+}
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.breadcrumbs > span[aria-hidden="true"] {
+  color: #91a197;
+}
+.breadcrumbs > span[aria-current="page"] {
+  color: #45594b;
 }

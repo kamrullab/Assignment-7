@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MapPin, TrendingUp } from "lucide-react";
 import { getProduct } from "@/lib/products";
@@ -19,9 +20,15 @@ export default async function ProductDetails({
   );
   return (
     <section className="container section detail-page">
-      <div className="breadcrumbs">
-        হোম　›　{product.categoryNameBn}　›　{product.nameBn}
-      </div>
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <Link href="/">হোম</Link>
+        <span aria-hidden="true">›</span>
+        <Link href={"/category/" + product.category}>
+          {product.categoryNameBn}
+        </Link>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">{product.nameBn}</span>
+      </nav>
       <div className="detail-hero">
         <div className="detail-emoji">{product.image}</div>
         <div>
