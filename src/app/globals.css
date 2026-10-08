@@ -1314,3 +1314,134 @@ body {
     font-size: 30px;
   }
 }
+
+/* Compact authentication layout and interaction feedback */
+.auth-page {
+  min-height: 620px;
+  padding: 34px 20px;
+}
+.auth-shell {
+  grid-template-columns: minmax(0, 0.82fr) minmax(380px, 0.68fr);
+  width: min(880px, 100%);
+  border-radius: 20px;
+  box-shadow: 0 22px 60px rgba(20, 58, 29, 0.12);
+}
+.auth-promo {
+  padding: 40px;
+}
+.auth-promo-mark {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  font-size: 29px;
+}
+.auth-promo-label {
+  margin-bottom: 11px;
+}
+.auth-promo h2 {
+  margin-bottom: 10px;
+  font-size: 33px;
+}
+.auth-promo > p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.auth-benefits {
+  gap: 9px;
+  margin-top: 24px;
+  font-size: 14px;
+}
+.auth-card {
+  padding: 32px 34px 28px;
+}
+.auth-heading h1 {
+  font-size: 31px;
+}
+.auth-card form {
+  gap: 12px;
+  margin-top: 20px;
+}
+.auth-card .input-wrap input {
+  height: 46px;
+}
+.auth-submit {
+  min-height: 46px;
+}
+.auth-card .or {
+  margin: 20px 0;
+}
+.socials {
+  gap: 8px;
+}
+.socials button {
+  min-height: 44px;
+}
+.auth-link {
+  margin-top: 17px !important;
+}
+.auth-submit,
+.socials button {
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+.auth-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: #036a30;
+  box-shadow: 0 10px 22px rgba(4, 124, 55, 0.22);
+}
+.socials button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: #5da971;
+  background: #edf8f0;
+  box-shadow: 0 7px 16px rgba(20, 58, 29, 0.09);
+}
+.auth-submit:active:not(:disabled),
+.socials button:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
+}
+.auth-submit:disabled,
+.socials button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+.brand-icon,
+.loading-icon {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+}
+.github-icon {
+  color: #181717;
+}
+.loading-icon {
+  animation: auth-spin 0.75s linear infinite;
+}
+.auth-submit .loading-icon {
+  margin-right: 7px;
+  vertical-align: -4px;
+}
+@keyframes auth-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 900px) {
+  .auth-shell {
+    max-width: 460px;
+  }
+  .auth-card {
+    padding: 32px 34px 28px;
+  }
+}
+@media (max-width: 600px) {
+  .auth-page {
+    padding: 22px 14px 32px;
+  }
+  .auth-card {
+    padding: 26px 20px 24px;
+  }
+}
