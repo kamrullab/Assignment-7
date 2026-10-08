@@ -1,8 +1,8 @@
 import { betterAuth } from "better-auth/minimal";
 import { mongodbAdapter } from "better-auth/adapters/mongodb";
-import { db } from "./mongodb";
+import { db, mongoClient } from "./mongodb";
 export const auth = betterAuth({
-  database: mongodbAdapter(db),
+  database: mongodbAdapter(db, { client: mongoClient, transaction: false }),
   baseURL: process.env.BETTER_AUTH_URL,
   emailAndPassword: { enabled: true, autoSignIn: false },
   socialProviders: {
