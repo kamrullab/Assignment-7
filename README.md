@@ -1,35 +1,112 @@
 # বাজার দর (BazarDor)
 
-A responsive web application for checking the daily prices of essential products in Bangladesh.
+BazarDor is a responsive web application for checking the daily prices of essential products in Bangladesh. It helps users browse products, compare price changes, and view prices from different markets.
 
-## Live Links
+## Live Version
+
+The production website is deployed on Vercel.
 
 - Live site: https://bazardors.vercel.app
-- GitHub: https://github.com/kamrullab/Assignment-7
+- GitHub repository: https://github.com/kamrullab/Assignment-7
+
+### Live Authentication Setup
+
+The production environment variables are stored securely in Vercel. The production base URL is:
+
+```text
+BETTER_AUTH_URL=https://bazardors.vercel.app
+```
+
+Production OAuth callback URLs:
+
+```text
+Google: https://bazardors.vercel.app/api/auth/callback/google
+GitHub: https://bazardors.vercel.app/api/auth/callback/github
+```
+
+These callback URLs must also be added to Google Cloud Console and GitHub Developer Settings.
+
+## Local Development
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/kamrullab/Assignment-7.git
+cd Assignment-7
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create the environment file
+
+Copy `.env.example` to `.env.local`.
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+Add your own credentials:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+BETTER_AUTH_SECRET=your_random_secret
+BETTER_AUTH_URL=http://localhost:3000
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+```
+
+Local OAuth callback URLs:
+
+```text
+Google: http://localhost:3000/api/auth/callback/google
+GitHub: http://localhost:3000/api/auth/callback/github
+```
+
+Never commit `.env.local` or share its values.
+
+### 4. Start the project
+
+```bash
+npm run dev
+```
+
+Open http://localhost:3000 in your browser.
 
 ## Features
 
-- View products whose prices increased or decreased today
-- Browse all products and filter them by category
-- Sort category products by price
-- View minimum, maximum, average, and market-based prices
-- Protected dynamic product details pages
-- Email/password, Google, and GitHub authentication with Better Auth
-- Protected profile page and name update option
-- Loading skeletons, toast messages, and custom 404 page
-- Responsive design for mobile, tablet, and desktop
-- Automatic backup API when the primary API is unavailable
+- Today's price increase and decrease sections
+- Complete product list with responsive cards
+- Category filtering and numerical price sorting
+- Dynamic product details pages
+- Minimum, maximum, average, and market-based prices
+- Protected product and profile routes
+- Email and password authentication
+- Google and GitHub social login
+- Profile information and user-name update
+- Loading skeletons and toast notifications
+- Friendly 404 and empty states
+- Responsive navigation and price ticker
+- Automatic backup API support
 
 ## Technologies
 
-- Next.js 16, React 19, and TypeScript
+- Next.js 16
+- React 19
+- TypeScript
 - Tailwind CSS
-- Better Auth and MongoDB
+- Better Auth
+- MongoDB
 - React Hot Toast
 - Lucide React
 - Vercel
 
-## APIs
+## API Information
 
 Primary API:
 
@@ -43,9 +120,9 @@ Backup API:
 https://api.abcz.workers.dev/api/bazardor
 ```
 
-The application first calls the primary API. If it fails, the same request is sent to the backup API automatically.
+The primary API is used first. If it fails or returns an unsuccessful response, the application automatically sends the same request to the backup API.
 
-Main endpoints:
+Available endpoints:
 
 ```text
 /products
@@ -55,53 +132,17 @@ Main endpoints:
 /categories/chal
 ```
 
-## Routes
+## Main Routes
 
-| Route              | Purpose                       |
-| ------------------ | ----------------------------- |
-| `/`                | Homepage and product sections |
-| `/category/[slug]` | Category products and sorting |
-| `/product/[slug]`  | Protected product details     |
-| `/signin`          | Sign in                       |
-| `/signup`          | Create an account             |
-| `/profile`         | Protected user profile        |
-| `/profile/update`  | Update user name              |
-
-## Environment Variables
-
-Create `.env.local` in the project root:
-
-```env
-MONGODB_URI=your_mongodb_connection_string
-BETTER_AUTH_SECRET=your_random_secret
-BETTER_AUTH_URL=http://localhost:3000
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-GITHUB_CLIENT_ID=your_github_client_id
-GITHUB_CLIENT_SECRET=your_github_client_secret
-```
-
-Do not commit `.env.local` or share its values.
-
-OAuth callback URLs:
-
-```text
-Local Google:  http://localhost:3000/api/auth/callback/google
-Local GitHub:  http://localhost:3000/api/auth/callback/github
-Google live:   https://bazardors.vercel.app/api/auth/callback/google
-GitHub live:   https://bazardors.vercel.app/api/auth/callback/github
-```
-
-## Run Locally
-
-```bash
-git clone https://github.com/kamrullab/Assignment-7.git
-cd Assignment-7
-npm install
-npm run dev
-```
-
-Open http://localhost:3000 after adding the environment variables.
+| Route              | Description                                   |
+| ------------------ | --------------------------------------------- |
+| `/`                | Homepage with price sections and all products |
+| `/category/[slug]` | Category products with sorting                |
+| `/product/[slug]`  | Protected product details                     |
+| `/signin`          | User sign-in                                  |
+| `/signup`          | User registration                             |
+| `/profile`         | Protected user profile                        |
+| `/profile/update`  | Update the user's name                        |
 
 ## Available Commands
 
@@ -112,10 +153,12 @@ npm run build
 npm run start
 ```
 
-## Deployment
+## Deployment Notes
 
-The project is deployed on Vercel. Add the same environment variables in the Vercel project settings and use `https://bazardors.vercel.app` as the production `BETTER_AUTH_URL`.
+For Vercel deployment, add all values from `.env.example` in the project Environment Variables settings. MongoDB Atlas must allow the deployed application to connect. The production domain and OAuth callback URLs must match exactly.
+
+For Cloudflare, use the full-stack Next.js Workers or OpenNext runtime. This project is not a static export because it uses route handlers, MongoDB, and server-side authentication.
 
 ## Author
 
-Kamrul — https://github.com/kamrullab
+Kamrul: https://github.com/kamrullab

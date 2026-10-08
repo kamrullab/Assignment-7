@@ -25,7 +25,7 @@ export default async function Home() {
               <span>সিদ্ধান্ত হোক সহজ</span>
             </h1>
             <p>
-              চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম —
+              চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম:
               সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
             </p>
             <Link className="btn primary hero-btn" href="#all-products">

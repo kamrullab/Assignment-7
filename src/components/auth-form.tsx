@@ -44,7 +44,7 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
 
       toast.success(
         signup
-          ? "অ্যাকাউন্ট তৈরি হয়েছে—এখন সাইন ইন করুন"
+          ? "অ্যাকাউন্ট তৈরি হয়েছে। এখন সাইন ইন করুন"
           : "সফলভাবে সাইন ইন হয়েছে",
       );
 
