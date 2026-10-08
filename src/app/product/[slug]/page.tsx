@@ -79,13 +79,13 @@ export default async function ProductDetails({
           </div>
           {product.markets.map((m) => (
             <div className="market-row" key={`${m.market}-${m.division}`}>
-              <b>
+              <b data-label="বাজার">
                 <MapPin size={16} />
                 {m.market}
               </b>
-              <span>{m.division}</span>
-              <span>{bnNumber(m.min)} টাকা</span>
-              <strong>{bnNumber(m.max)} টাকা</strong>
+              <span data-label="বিভাগ">{m.division}</span>
+              <span data-label="সর্বনিম্ন">{bnNumber(m.min)} টাকা</span>
+              <strong data-label="সর্বাধিক">{bnNumber(m.max)} টাকা</strong>
             </div>
           ))}
         </div>

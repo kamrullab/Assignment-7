@@ -91,6 +91,18 @@ export function Header() {
       </div>
       {open && (
         <nav className="mobile-nav">
+          <Link
+            href="/"
+            className={pathname === "/" ? "active" : undefined}
+            onClick={() => setOpen(false)}
+          >
+            হোম
+          </Link>
+          {session && (
+            <Link href="/profile" onClick={() => setOpen(false)}>
+              প্রোফাইল
+            </Link>
+          )}
           {categories.map(([s, n]) => (
             <Link
               onClick={() => setOpen(false)}
