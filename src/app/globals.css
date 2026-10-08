@@ -2324,8 +2324,8 @@ textarea {
   }
   .footer-simple {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 7px;
-    text-align: left;
+    text-align: center;
   }
 }
