@@ -1445,3 +1445,105 @@ body {
     padding: 26px 20px 24px;
   }
 }
+
+/* Final compact auth card: designed to fit common laptop viewports */
+body:has(.auth-page) .ticker {
+  display: none;
+}
+body:has(.auth-page) .topbar {
+  height: 64px;
+}
+.auth-page {
+  min-height: calc(100vh - 64px);
+  padding: 22px 16px;
+}
+.auth-shell {
+  display: block;
+  width: min(410px, 100%);
+  border-radius: 18px;
+}
+.auth-promo {
+  display: none;
+}
+.auth-card {
+  width: 100%;
+  padding: 24px 28px 22px;
+}
+.auth-heading {
+  text-align: center;
+}
+.auth-mobile-logo {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 9px;
+  place-items: center;
+  border-radius: 13px;
+  background: #e8f7ec;
+  color: #047c37;
+}
+.auth-mobile-logo svg {
+  width: 24px;
+  height: 24px;
+}
+.auth-heading .kicker {
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+.auth-heading h1 {
+  font-size: 27px;
+}
+.auth-heading > p:last-child {
+  margin-top: 4px;
+  font-size: 13px;
+}
+.auth-card form {
+  gap: 9px;
+  margin-top: 15px;
+}
+.auth-card label > span {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+.auth-card .input-wrap input {
+  height: 42px;
+  padding-left: 40px;
+  font-size: 14px;
+}
+.input-wrap svg {
+  left: 13px;
+  width: 17px;
+}
+.auth-submit {
+  min-height: 42px;
+  font-size: 14px;
+}
+.auth-card .or {
+  margin: 15px 0;
+}
+.socials {
+  gap: 7px;
+}
+.socials button {
+  min-height: 41px;
+  padding: 7px 10px;
+  font-size: 14px;
+}
+.brand-icon,
+.loading-icon {
+  width: 18px;
+  height: 18px;
+  flex-basis: 18px;
+}
+.auth-link {
+  margin-top: 13px !important;
+  font-size: 13px;
+}
+@media (max-width: 600px) {
+  .auth-page {
+    padding: 16px 12px 24px;
+  }
+  .auth-card {
+    padding: 22px 18px 20px;
+  }
+}

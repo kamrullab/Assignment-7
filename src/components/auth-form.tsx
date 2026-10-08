@@ -8,6 +8,7 @@ import {
   LockKeyhole,
   Mail,
   ShieldCheck,
+  ShoppingCart,
   UserRound,
 } from "lucide-react";
 import toast from "react-hot-toast";
@@ -86,7 +87,9 @@ export function AuthForm({ mode }: { mode: "signin" | "signup" }) {
 
       <div className="auth-card">
         <div className="auth-heading">
-          <span className="auth-mobile-logo">🛒</span>
+          <span className="auth-mobile-logo">
+            <ShoppingCart aria-hidden="true" />
+          </span>
           <p className="kicker">বাজার দর</p>
           <h1>{signup ? "নতুন অ্যাকাউন্ট" : "স্বাগতম"}</h1>
           <p>
