@@ -1800,3 +1800,52 @@ main:has(.profile-page) {
   height: calc(100vh - 58px);
   max-height: calc(100vh - 58px);
 }
+
+/* Faster account navigation and higher profile placement */
+.site-header {
+  backdrop-filter: none;
+}
+.profile-page {
+  place-items: start center;
+  min-height: 0;
+  padding-top: 34px;
+  padding-bottom: 42px;
+}
+.profile-loading .profile-card {
+  display: grid;
+  justify-items: center;
+}
+.profile-avatar-skeleton {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+}
+.profile-line {
+  height: 15px;
+  margin-top: 10px;
+}
+.profile-line.short {
+  width: 90px;
+}
+.profile-line.title {
+  width: min(230px, 70%);
+  height: 30px;
+}
+.profile-line.email {
+  width: min(260px, 80%);
+}
+.profile-info-skeleton {
+  width: 100%;
+  height: 72px;
+  margin-top: 18px;
+}
+.profile-button-skeleton {
+  width: 150px;
+  height: 40px;
+  margin-top: 16px;
+}
+@media (max-width: 520px) {
+  .profile-page {
+    padding-top: 22px;
+  }
+}
