@@ -4,7 +4,11 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
       {children}
-      <Toaster position="top-center" toastOptions={{ duration: 3500 }} />
+      <Toaster
+        position="top-center"
+        containerStyle={{ top: 82 }}
+        toastOptions={{ duration: 3500 }}
+      />
     </>
   );
 }
