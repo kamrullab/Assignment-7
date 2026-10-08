@@ -2075,3 +2075,114 @@ textarea {
     padding: 18px;
   }
 }
+
+/* Polished market comparison table */
+.market-section {
+  margin-top: 8px;
+}
+.market-table {
+  border-color: #cfe5d5;
+  border-radius: 18px;
+  box-shadow: 0 14px 38px rgba(23, 80, 43, 0.08);
+}
+.market-head,
+.market-row {
+  grid-template-columns: minmax(220px, 2fr) minmax(110px, 1fr) minmax(
+      110px,
+      1fr
+    ) minmax(110px, 1fr);
+}
+.market-head {
+  padding: 17px 24px;
+  background: linear-gradient(135deg, #e8f7ec 0%, #f3fbf5 100%);
+  border-bottom: 1px solid #cfe5d5;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+.market-row {
+  min-height: 68px;
+  padding: 15px 24px;
+  border-top: 0;
+  border-bottom: 1px solid #e6efe8;
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+.market-row:last-child {
+  border-bottom: 0;
+}
+.market-row:nth-child(odd) {
+  background: #fbfefc;
+}
+.market-row:hover {
+  position: relative;
+  z-index: 1;
+  background: #f2faf4;
+  box-shadow: inset 4px 0 0 var(--green);
+}
+.market-row b {
+  gap: 10px;
+  font-size: 16px;
+}
+.market-row b svg {
+  flex: 0 0 auto;
+  padding: 5px;
+  border-radius: 50%;
+  background: #e8f7ec;
+  color: var(--green);
+  box-sizing: content-box;
+}
+.market-row > span {
+  color: #45594b;
+}
+.market-row strong {
+  width: fit-content;
+  padding: 5px 11px;
+  border: 1px solid #c9e9d2;
+  border-radius: 999px;
+  background: #eaf8ee;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+  .market-table {
+    display: grid;
+    gap: 10px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .market-row {
+    min-height: 0;
+    padding: 15px;
+    border: 1px solid #d8e8dc;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(23, 80, 43, 0.06);
+  }
+  .market-row:nth-child(odd) {
+    background: #fbfefc;
+  }
+  .market-row:hover {
+    box-shadow:
+      inset 3px 0 0 var(--green),
+      0 8px 24px rgba(23, 80, 43, 0.08);
+  }
+  .market-row b {
+    font-size: 15px;
+  }
+  .market-row strong {
+    padding: 4px 9px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .market-row {
+    gap: 11px 12px;
+    padding: 13px;
+  }
+}
