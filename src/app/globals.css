@@ -1768,3 +1768,35 @@ main:has(.profile-page) {
     padding-top: 9px;
   }
 }
+
+/* Keep no-scroll behavior scoped to sign-in and sign-up only. */
+body:has(.auth-page),
+body:has(.profile-page) {
+  height: auto;
+  overflow-y: auto;
+}
+body:has(.profile-page) footer,
+body:has(.profile-page) .ticker {
+  display: block;
+}
+body:has(.profile-page) .ticker {
+  overflow: hidden;
+}
+body:has(.profile-page) .topbar {
+  height: 66px;
+}
+main:has(.profile-page) {
+  min-height: 70vh;
+  height: auto;
+}
+.profile-page {
+  width: min(1180px, calc(100% - 40px));
+  height: auto;
+  min-height: 650px;
+  padding-block: 58px;
+  overflow: visible;
+}
+.auth-page {
+  height: calc(100vh - 58px);
+  max-height: calc(100vh - 58px);
+}
