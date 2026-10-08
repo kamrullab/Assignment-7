@@ -43,3 +43,6 @@ next-env.d.ts
 # local npm cache
 /clean/
 !.env.example
+.vercel
+.env*
+!.env.example
