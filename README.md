@@ -1,10 +1,10 @@
 # বাজার দর (BazarDor)
 
-BazarDor is a responsive web application for checking the daily prices of essential products in Bangladesh. It helps users browse products, compare price changes, and view prices from different markets.
+My BazarDor project is a responsive web application for checking the daily prices of essential products in Bangladesh. It helps users browse products, compare price changes, and view prices from different markets.
 
-## Live Version
+## My Live Project
 
-The production website is deployed on Vercel.
+I deployed the production website on Vercel.
 
 - Live site: https://bazardors.vercel.app
 - GitHub repository: https://github.com/kamrullab/Assignment-7
@@ -49,7 +49,7 @@ Copy `.env.example` to `.env.local`.
 Copy-Item .env.example .env.local
 ```
 
-Add your own credentials:
+Add the required credentials:
 
 ```env
 MONGODB_URI=your_mongodb_connection_string
@@ -76,7 +76,7 @@ Never commit `.env.local` or share its values.
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser.
+Open http://localhost:3000 in a browser.
 
 ## Features
 

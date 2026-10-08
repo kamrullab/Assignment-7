@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { UserRound } from "lucide-react";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
 export default function UpdateProfile() {
@@ -23,9 +24,11 @@ export default function UpdateProfile() {
     router.refresh();
   }
   return (
-    <section className="auth-page">
-      <div className="auth-card">
-        <div className="auth-logo">👤</div>
+    <section className="auth-page profile-update-page">
+      <div className="auth-card profile-update-card">
+        <div className="profile-update-icon">
+          <UserRound aria-hidden="true" />
+        </div>
         <p className="kicker">আমার প্রোফাইল</p>
         <h1>তথ্য আপডেট</h1>
         <p>আপনার প্রদর্শিত নাম পরিবর্তন করুন।</p>

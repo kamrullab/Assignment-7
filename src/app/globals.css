@@ -1849,3 +1849,57 @@ main:has(.profile-page) {
     padding-top: 22px;
   }
 }
+
+/* Compact update-profile form */
+.profile-update-card {
+  width: min(380px, 100%);
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 16px 42px rgba(20, 58, 29, 0.1);
+  text-align: center;
+}
+.profile-update-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+  place-items: center;
+  border-radius: 13px;
+  background: #e8f7ec;
+  color: var(--green);
+}
+.profile-update-icon svg {
+  width: 25px;
+  height: 25px;
+}
+.profile-update-card h1 {
+  margin: 3px 0;
+  font-size: 27px;
+}
+.profile-update-card > p:not(.kicker) {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+.profile-update-card form {
+  gap: 10px;
+  margin-top: 18px;
+}
+.profile-update-card label {
+  font-size: 13px;
+}
+.profile-update-card input {
+  height: 42px;
+  margin-top: 4px;
+  font-size: 14px;
+}
+.profile-update-card form .btn {
+  min-height: 42px;
+  margin-top: 2px;
+  font-size: 14px;
+}
+@media (max-width: 480px) {
+  .profile-update-card {
+    padding: 21px 18px;
+  }
+}
