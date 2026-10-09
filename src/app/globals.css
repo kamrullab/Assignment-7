@@ -2623,3 +2623,52 @@ textarea {
     line-height: 1.25;
   }
 }
+
+/* Compact three-column market cards on phones */
+@media (max-width: 480px) {
+  .market-row {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.8fr) minmax(0, 0.85fr);
+    gap: 10px 8px;
+    padding: 12px 10px;
+  }
+  .market-row > * {
+    gap: 2px;
+    font-size: 12px;
+  }
+  .market-row > *::before {
+    font-size: 9px;
+  }
+  .market-row b {
+    gap: 2px 5px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+  .market-row b svg {
+    width: 12px;
+    padding: 3px;
+  }
+  .market-row .market-min,
+  .market-row .market-max,
+  .market-row .market-average {
+    grid-column: auto;
+    width: fit-content;
+    max-width: 100%;
+    padding: 3px 6px;
+    border: 1px solid;
+    border-radius: 999px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+  .market-row .market-min {
+    border-color: #c8e8d0;
+    background: #eaf8ee;
+  }
+  .market-row .market-max {
+    border-color: #f2caca;
+    background: #fff0f0;
+  }
+  .market-row .market-average {
+    border-color: #f1dfb0;
+    background: #fff8e7;
+  }
+}
