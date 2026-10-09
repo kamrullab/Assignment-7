@@ -18,6 +18,7 @@ export default async function ProductDetails({
     product.markets.reduce((s, m) => s + (m.min + m.max) / 2, 0) /
       product.markets.length,
   );
+  const shortUnit = unitLabel(product.unit).replace("প্রতি ", "");
   return (
     <section className="container section detail-page">
       <nav className="breadcrumbs" aria-label="Breadcrumb">
@@ -49,6 +50,12 @@ export default async function ProductDetails({
             <span>{unitLabel(product.unit)}</span>
             <ChangeBadge product={product} />
           </div>
+        </div>
+        <div className="detail-today">
+          <span>আজকের দাম</span>
+          <strong>{bnNumber(product.today)}</strong>
+          <small>টাকা / {shortUnit}</small>
+          <ChangeBadge product={product} />
         </div>
       </div>
       <div className="summary">
@@ -83,6 +90,7 @@ export default async function ProductDetails({
             <span>বিভাগ</span>
             <span>সর্বনিম্ন</span>
             <span>সর্বাধিক</span>
+            <span>গড়</span>
           </div>
           {product.markets.map((m) => (
             <div className="market-row" key={`${m.market}-${m.division}`}>
@@ -93,6 +101,9 @@ export default async function ProductDetails({
               <span data-label="বিভাগ">{m.division}</span>
               <span data-label="সর্বনিম্ন">{bnNumber(m.min)} টাকা</span>
               <strong data-label="সর্বাধিক">{bnNumber(m.max)} টাকা</strong>
+              <span className="market-average" data-label="গড়">
+                {bnNumber(Math.round((m.min + m.max) / 2))} টাকা
+              </span>
             </div>
           ))}
         </div>
