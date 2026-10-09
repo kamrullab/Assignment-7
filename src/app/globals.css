@@ -2504,3 +2504,122 @@ textarea {
     justify-content: center;
   }
 }
+
+/* Final responsive market layout: desktop table, tablet/mobile cards */
+@media (max-width: 900px) {
+  .market-section {
+    min-width: 0;
+    overflow: visible;
+  }
+  .market-table {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    gap: 12px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .market-head {
+    display: none;
+  }
+  .market-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    gap: 14px 18px;
+    padding: 16px;
+    border: 1px solid #d8e8dc;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(23, 80, 43, 0.06);
+  }
+  .market-row:nth-child(odd) {
+    background: #fbfefc;
+  }
+  .market-row > * {
+    display: flex;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-self: stretch;
+    gap: 3px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .market-row > *::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .market-row b {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    justify-content: start;
+    gap: 3px 7px;
+  }
+  .market-row b::before {
+    grid-column: 1 / -1;
+  }
+  .market-row b svg {
+    width: 14px;
+  }
+  .market-row .market-min,
+  .market-row .market-max {
+    width: fit-content;
+    max-width: 100%;
+    padding: 4px 9px;
+    border: 1px solid;
+    border-radius: 999px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .market-row .market-min {
+    border-color: #c8e8d0;
+    background: #eaf8ee;
+  }
+  .market-row .market-max {
+    border-color: #f2caca;
+    background: #fff0f0;
+  }
+  .market-row .market-average {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding-top: 11px;
+    border: 0;
+    border-top: 1px solid #e1ebe4;
+    border-radius: 0;
+    background: transparent;
+  }
+}
+
+@media (max-width: 480px) {
+  .market-row {
+    gap: 12px;
+    padding: 14px;
+  }
+  .market-row b {
+    font-size: 14px;
+  }
+  .market-row .market-min,
+  .market-row .market-max {
+    font-size: 13px;
+  }
+  .market-section .section-heading h2 {
+    font-size: 25px;
+    line-height: 1.25;
+  }
+}
