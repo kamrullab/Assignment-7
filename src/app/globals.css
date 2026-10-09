@@ -2486,3 +2486,21 @@ textarea {
     background: transparent;
   }
 }
+
+/* Center desktop price summaries and comparison columns */
+.summary article {
+  text-align: center;
+}
+.summary article > span {
+  justify-content: center;
+}
+@media (min-width: 681px) {
+  .market-head > *,
+  .market-row > * {
+    justify-self: center;
+    text-align: center;
+  }
+  .market-row b {
+    justify-content: center;
+  }
+}
