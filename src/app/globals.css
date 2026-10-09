@@ -2413,3 +2413,76 @@ textarea {
     border-top: 1px solid #e1ebe4;
   }
 }
+
+/* Semantic price colors */
+.detail-today {
+  border: 1px solid #d7e5da;
+}
+.detail-today.up {
+  border-color: #bbdfc5;
+  background: #eaf8ee;
+}
+.detail-today.up > strong {
+  color: #087d38;
+}
+.detail-today.down {
+  border-color: #f3c5c5;
+  background: #fff0f0;
+}
+.detail-today.down > strong {
+  color: #c53030;
+}
+.detail-today.flat {
+  border-color: #dce3ea;
+  background: #f3f6f9;
+}
+.detail-today.flat > strong {
+  color: #64748b;
+}
+.summary-min strong {
+  color: #07833b;
+}
+.summary-max strong {
+  color: #d03438;
+}
+.market-row .market-min,
+.market-row .market-max,
+.market-row .market-average {
+  width: fit-content;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.market-row .market-min {
+  border: 1px solid #c8e8d0;
+  background: #eaf8ee;
+  color: #07833b;
+}
+.market-row .market-max {
+  border-color: #f2caca;
+  background: #fff0f0;
+  color: #c53030;
+}
+.market-row .market-average {
+  border: 1px solid #f1dfb0;
+  background: #fff8e7;
+  color: #a56608 !important;
+}
+
+@media (max-width: 680px) {
+  .market-row .market-min,
+  .market-row .market-max {
+    padding: 4px 9px;
+    font-size: 14px;
+  }
+  .market-row .market-average {
+    width: 100%;
+    padding: 10px 0 0;
+    border: 0;
+    border-top: 1px solid #e1ebe4;
+    border-radius: 0;
+    background: transparent;
+  }
+}

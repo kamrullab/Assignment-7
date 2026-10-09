@@ -51,7 +51,7 @@ export default async function ProductDetails({
             <ChangeBadge product={product} />
           </div>
         </div>
-        <div className="detail-today">
+        <div className={"detail-today " + product.change.dir}>
           <span>আজকের দাম</span>
           <strong>{bnNumber(product.today)}</strong>
           <small>টাকা / {shortUnit}</small>
@@ -59,12 +59,12 @@ export default async function ProductDetails({
         </div>
       </div>
       <div className="summary">
-        <article>
+        <article className="summary-min">
           <small>সর্বনিম্ন দাম</small>
           <strong>{bnNumber(min)} টাকা</strong>
           <span>সবচেয়ে কম দামের বাজার</span>
         </article>
-        <article>
+        <article className="summary-max">
           <small>সর্বাধিক দাম</small>
           <strong>{bnNumber(max)} টাকা</strong>
           <span>সবচেয়ে বেশি দামের বাজার</span>
@@ -99,8 +99,12 @@ export default async function ProductDetails({
                 {m.market}
               </b>
               <span data-label="বিভাগ">{m.division}</span>
-              <span data-label="সর্বনিম্ন">{bnNumber(m.min)} টাকা</span>
-              <strong data-label="সর্বাধিক">{bnNumber(m.max)} টাকা</strong>
+              <span className="market-min" data-label="সর্বনিম্ন">
+                {bnNumber(m.min)} টাকা
+              </span>
+              <strong className="market-max" data-label="সর্বাধিক">
+                {bnNumber(m.max)} টাকা
+              </strong>
               <span className="market-average" data-label="গড়">
                 {bnNumber(Math.round((m.min + m.max) / 2))} টাকা
               </span>
