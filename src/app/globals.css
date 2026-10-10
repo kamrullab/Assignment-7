@@ -1688,11 +1688,6 @@ body {
   max-width: 100%;
   overflow-x: clip;
 }
-body:has(.auth-page) footer,
-body:has(.profile-page) footer,
-body:has(.profile-page) .ticker {
-  display: none;
-}
 body:has(.profile-page) .topbar {
   height: 58px;
 }
@@ -2723,7 +2718,6 @@ textarea {
   }
 }
 
-/* Keep the stable server-rendered footer off authentication pages. */
-body:has(.auth-page) .site-footer {
+.site-footer.footer-hidden {
   display: none !important;
 }
