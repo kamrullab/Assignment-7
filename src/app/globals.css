@@ -2717,7 +2717,3 @@ textarea {
     box-shadow: 0 8px 24px rgba(23, 80, 43, 0.08);
   }
 }
-
-.site-footer.footer-hidden {
-  display: none !important;
-}
