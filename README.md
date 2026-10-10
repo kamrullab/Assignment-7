@@ -114,13 +114,17 @@ Primary API:
 https://api.api-store.workers.dev/api/bazardor
 ```
 
-Backup API:
+Second API:
 
 ```text
 https://api.abcz.workers.dev/api/bazardor
 ```
 
-The primary API is used first. If it fails or returns an unsuccessful response, the application automatically sends the same request to the backup API.
+Third API:
+
+https://api-store-indol.vercel.app/api/bazardor
+
+The APIs are tried in order. If one API has a network error, returns an unsuccessful response, or sends invalid JSON, the application automatically tries the next API.
 
 Available endpoints:
 
