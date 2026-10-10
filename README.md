@@ -108,27 +108,33 @@ Open http://localhost:3000 in a browser.
 
 ## API Information
 
-Primary API:
+The application uses four API sources in the following fallback order:
+
+**1. Primary API**
 
 ```text
 https://api.api-store.workers.dev/api/bazardor
 ```
 
-Second API:
+**2. Secondary API**
 
 ```text
 https://api.abcz.workers.dev/api/bazardor
 ```
 
-Third API:
+**3. Third API**
 
+```text
 https://api-store-indol.vercel.app/api/bazardor
+```
 
-Fourth API:
+**4. Fourth API**
 
+```text
 https://openapi.programming-hero.com/api/bazardor
+```
 
-The APIs are tried in order. If one API has a network error, returns an unsuccessful response, or sends invalid JSON, the application automatically tries the next API.
+If an API has a network error, returns an unsuccessful response, or sends invalid JSON, the application automatically tries the next API in the list.
 
 Available endpoints:
 
