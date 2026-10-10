@@ -1688,11 +1688,6 @@ body {
   max-width: 100%;
   overflow-x: clip;
 }
-body:has(.auth-page),
-body:has(.profile-page) {
-  height: 100vh;
-  overflow: hidden;
-}
 body:has(.auth-page) footer,
 body:has(.profile-page) footer,
 body:has(.profile-page) .ticker {
@@ -1769,12 +1764,6 @@ main:has(.profile-page) {
   }
 }
 
-/* Keep no-scroll behavior scoped to sign-in and sign-up only. */
-body:has(.auth-page),
-body:has(.profile-page) {
-  height: auto;
-  overflow-y: auto;
-}
 body:has(.profile-page) footer,
 body:has(.profile-page) .ticker {
   display: block;
