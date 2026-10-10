@@ -17,9 +17,6 @@ html {
 }
 body {
   margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   background: #fafcfa;
   color: var(--ink);
   font-family: var(--font-hind), sans-serif;
@@ -34,7 +31,6 @@ select {
   font: inherit;
 }
 main {
-  flex: 1 0 auto;
   min-height: 70vh;
 }
 .container {
@@ -855,7 +851,7 @@ footer {
 /* Prevent form controls and social-login labels from widening auth cards on phones. */
 .auth-page {
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 .auth-card,
 .auth-card form,
@@ -1690,7 +1686,7 @@ body:has(.auth-page) .topbar {
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body:has(.auth-page),
 body:has(.profile-page) {
