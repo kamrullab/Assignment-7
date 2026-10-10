@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import { Mail, UserRound } from "lucide-react";
 import { auth } from "@/lib/auth";
 import { ensureMongoConnection } from "@/lib/mongodb";
+
+export const dynamic = "force-dynamic";
 export default async function Profile() {
   await ensureMongoConnection();
   const session = await auth.api.getSession({ headers: await headers() });
