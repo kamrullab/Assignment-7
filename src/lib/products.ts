@@ -4,6 +4,7 @@ const API_BASE_URLS = [
   "https://api.api-store.workers.dev/api/bazardor",
   "https://api.abcz.workers.dev/api/bazardor",
   "https://api-store-indol.vercel.app/api/bazardor",
+  "https://openapi.programming-hero.com/api/bazardor",
 ] as const;
 
 async function request<T>(path: string): Promise<T> {
