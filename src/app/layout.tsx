@@ -90,9 +90,7 @@ export default function RootLayout({
             <Header />
           </Suspense>
           <main>{children}</main>
-          <Suspense fallback={null}>
-            <Footer />
-          </Suspense>
+          <Footer />
         </Providers>
       </body>
     </html>
